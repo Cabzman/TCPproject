@@ -1,0 +1,195 @@
+Starting the TCP Debugger
+Will run test 3 for length of time 35
+Time = 0
+
+    TCP<-APP  PRIMITIVE = OPEN  Local_ID:1
+		 Byte_Count:100
+		 Source_Port:33  Dest_Port:46  Dest_Addr:2.2.2.2  Window:100
+		 Open_Type:ACTIVE_OPEN
+
+    TCP State:CLOSED
+
+    TCP->TIM  PRIMITIVE = SET_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:0  Expire_Time:1
+
+IP<-TCP       PRIMITIVE = IP_SEND  Local_ID:0
+		 Byte_Count:20
+		 Push:1
+		 TCP SEGMENT: SYN 
+		   Source_Port:33  Dest_Port:46
+		   Send_Seq#:0  Ack_Seq#:0
+		   Flags: Urgent:0  Ack:0  Push:0  Reset:0  Syn:1  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:33 Addr:1.1.1.1  Dest Port:46 Addr:2.2.2.2
+Time = 1
+
+    TCP<-TIM  PRIMITIVE = EXPIRE_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:0  Expire_Time:1
+
+    TCP State:SYN_SENT
+
+    TCP->TIM  PRIMITIVE = SET_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:1  Expire_Time:2
+
+IP<-TCP       PRIMITIVE = IP_SEND  Local_ID:0
+		 Byte_Count:20
+		 Push:0
+		 TCP SEGMENT: SYN 
+		   Source_Port:33  Dest_Port:46
+		   Send_Seq#:0  Ack_Seq#:0
+		   Flags: Urgent:0  Ack:0  Push:0  Reset:0  Syn:1  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:33 Addr:1.1.1.1  Dest Port:46 Addr:2.2.2.2
+Time = 2
+
+    TCP<-TIM  PRIMITIVE = EXPIRE_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:1  Expire_Time:2
+
+    TCP State:SYN_SENT
+
+    TCP->TIM  PRIMITIVE = SET_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:2  Expire_Time:5
+
+IP<-TCP       PRIMITIVE = IP_SEND  Local_ID:0
+		 Byte_Count:20
+		 Push:0
+		 TCP SEGMENT: SYN 
+		   Source_Port:33  Dest_Port:46
+		   Send_Seq#:0  Ack_Seq#:0
+		   Flags: Urgent:0  Ack:0  Push:0  Reset:0  Syn:1  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:33 Addr:1.1.1.1  Dest Port:46 Addr:2.2.2.2
+Time = 3
+Time = 4
+Time = 5
+
+    TCP<-APP  PRIMITIVE = SEND  Local_ID:1
+		 Byte_Count:22
+		 Push:1
+		     APPL DATA:Local sending packet A
+
+    TCP State:SYN_SENT
+TCP Output Closed State: Received Prim: SEND
+
+    TCP<-TIM  PRIMITIVE = EXPIRE_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:2  Expire_Time:5
+
+    TCP State:SYN_SENT
+
+    TCP->TIM  PRIMITIVE = SET_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:5  Expire_Time:10
+
+IP<-TCP       PRIMITIVE = IP_SEND  Local_ID:0
+		 Byte_Count:20
+		 Push:0
+		 TCP SEGMENT: SYN 
+		   Source_Port:33  Dest_Port:46
+		   Send_Seq#:0  Ack_Seq#:0
+		   Flags: Urgent:0  Ack:0  Push:0  Reset:0  Syn:1  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:33 Addr:1.1.1.1  Dest Port:46 Addr:2.2.2.2
+Time = 6
+Time = 7
+Time = 8
+Time = 9
+Time = 10
+
+    TCP<-TIM  PRIMITIVE = EXPIRE_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:5  Expire_Time:10
+
+    TCP State:SYN_SENT
+
+    TCP->TIM  PRIMITIVE = SET_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:10  Expire_Time:17
+
+IP<-TCP       PRIMITIVE = IP_SEND  Local_ID:0
+		 Byte_Count:20
+		 Push:0
+		 TCP SEGMENT: SYN 
+		   Source_Port:33  Dest_Port:46
+		   Send_Seq#:0  Ack_Seq#:0
+		   Flags: Urgent:0  Ack:0  Push:0  Reset:0  Syn:1  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:33 Addr:1.1.1.1  Dest Port:46 Addr:2.2.2.2
+Time = 11
+Time = 12
+Time = 13
+Time = 14
+Time = 15
+Time = 16
+Time = 17
+
+    TCP<-TIM  PRIMITIVE = EXPIRE_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:10  Expire_Time:17
+
+    TCP State:SYN_SENT
+
+    TCP->TIM  PRIMITIVE = SET_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:17  Expire_Time:26
+
+IP<-TCP       PRIMITIVE = IP_SEND  Local_ID:0
+		 Byte_Count:20
+		 Push:0
+		 TCP SEGMENT: SYN 
+		   Source_Port:33  Dest_Port:46
+		   Send_Seq#:0  Ack_Seq#:0
+		   Flags: Urgent:0  Ack:0  Push:0  Reset:0  Syn:1  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:33 Addr:1.1.1.1  Dest Port:46 Addr:2.2.2.2
+Time = 18
+Time = 19
+Time = 20
+Time = 21
+Time = 22
+Time = 23
+Time = 24
+Time = 25
+Time = 26
+
+    TCP<-TIM  PRIMITIVE = EXPIRE_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:17  Expire_Time:26
+
+    TCP State:SYN_SENT
+Entering Closed State
+
+    TCP->APP  PRIMITIVE = ABORT  Local_ID:1
+		 Byte_Count:0
+
+IP<-TCP       PRIMITIVE = IP_SEND  Local_ID:0
+		 Byte_Count:20
+		 Push:1
+		 TCP SEGMENT: DATA  
+		   Source_Port:33  Dest_Port:46
+		   Send_Seq#:0  Ack_Seq#:0
+		   Flags: Urgent:0  Ack:0  Push:0  Reset:1  Syn:0  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:33 Addr:1.1.1.1  Dest Port:46 Addr:2.2.2.2
+Time = 27
+Time = 28
+Time = 29
+Time = 30
+Time = 31
+Time = 32
+Time = 33
+Time = 34
+Simulation Done
+Test completed

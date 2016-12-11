@@ -1,0 +1,106 @@
+Starting the TCP Debugger
+Will run test 5 for length of time 20
+Time = 0
+Time = 1
+
+    TCP<-APP  PRIMITIVE = OPEN  Local_ID:1
+		 Byte_Count:18
+		 Source_Port:12  Dest_Port:0  Dest_Addr:0.0.0.0  Window:18
+		 Open_Type:PASSIVE_OPEN
+
+IP->TCP       PRIMITIVE = IP_DELIVER  Local_ID:0
+		 Byte_Count:20
+		 Push:1
+		 TCP SEGMENT: SYN 
+		   Source_Port:24  Dest_Port:12
+		   Send_Seq#:0  Ack_Seq#:0
+		   Flags: Urgent:0  Ack:0  Push:0  Reset:0  Syn:1  Fin:0
+		   Data_Offset:5  Window:18  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:12 Addr:2.2.2.2  Dest Port:24 Addr:1.1.1.1
+
+    TCP<-APP  PRIMITIVE = OPEN  Local_ID:1
+		 Byte_Count:100
+		 Source_Port:33  Dest_Port:46  Dest_Addr:2.2.2.2  Window:100
+		 Open_Type:ACTIVE_OPEN
+
+    TCP State:CLOSED
+
+    TCP State:LISTEN
+TCP Output: State Not Supported Yet!
+Time = 2
+Time = 3
+Time = 4
+Time = 5
+
+    TCP<-APP  PRIMITIVE = SEND  Local_ID:1
+		 Byte_Count:22
+		 Push:1
+		     APPL DATA:Local sending packet A
+
+    TCP State:LISTEN
+TCP Output: State Not Supported Yet!
+Time = 6
+
+    TCP<-APP  PRIMITIVE = SEND  Local_ID:1
+		 Byte_Count:22
+		 Push:1
+		     APPL DATA:Local sending packet B
+
+    TCP State:LISTEN
+TCP Output: State Not Supported Yet!
+Time = 7
+Time = 8
+Time = 9
+
+    TCP<-APP  PRIMITIVE = SEND  Local_ID:1
+		 Byte_Count:22
+		 Push:1
+		     APPL DATA:Local sending packet C
+
+    TCP State:LISTEN
+TCP Output: State Not Supported Yet!
+Time = 10
+Time = 11
+
+    TCP<-APP  PRIMITIVE = SEND  Local_ID:1
+		 Byte_Count:22
+		 Push:1
+		     APPL DATA:Local sending packet D
+
+    TCP State:LISTEN
+TCP Output: State Not Supported Yet!
+Time = 12
+Time = 13
+
+    TCP<-APP  PRIMITIVE = SEND  Local_ID:1
+		 Byte_Count:22
+		 Push:1
+		     APPL DATA:Local sending packet E
+
+    TCP State:LISTEN
+TCP Output: State Not Supported Yet!
+Time = 14
+Time = 15
+Time = 16
+
+    TCP<-APP  PRIMITIVE = SEND  Local_ID:1
+		 Byte_Count:22
+		 Push:1
+		     APPL DATA:Local sending packet F
+
+    TCP State:LISTEN
+TCP Output: State Not Supported Yet!
+Time = 17
+
+    TCP<-APP  PRIMITIVE = SEND  Local_ID:1
+		 Byte_Count:22
+		 Push:1
+		     APPL DATA:Local sending packet G
+
+    TCP State:LISTEN
+TCP Output: State Not Supported Yet!
+Time = 18
+Time = 19
+Simulation Done
+Test completed

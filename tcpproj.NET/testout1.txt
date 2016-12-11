@@ -1,0 +1,146 @@
+Starting the TCP Debugger
+Will run test 1 for length of time 10
+Time = 0
+Time = 1
+
+    TCP<-APP  PRIMITIVE = OPEN  Local_ID:1
+		 Byte_Count:100
+		 Source_Port:33  Dest_Port:46  Dest_Addr:2.2.2.2  Window:100
+		 Open_Type:ACTIVE_OPEN
+
+    TCP State:CLOSED
+
+    TCP->TIM  PRIMITIVE = SET_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:1  Expire_Time:2
+
+IP<-TCP       PRIMITIVE = IP_SEND  Local_ID:0
+		 Byte_Count:20
+		 Push:1
+		 TCP SEGMENT: SYN 
+		   Source_Port:33  Dest_Port:46
+		   Send_Seq#:0  Ack_Seq#:0
+		   Flags: Urgent:0  Ack:0  Push:0  Reset:0  Syn:1  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:33 Addr:1.1.1.1  Dest Port:46 Addr:2.2.2.2
+
+IP->TCP       PRIMITIVE = IP_DELIVER  Local_ID:0
+		 Byte_Count:20
+		 Push:0
+		 TCP SEGMENT: SYN + ACK 
+		   Source_Port:46  Dest_Port:33
+		   Send_Seq#:0  Ack_Seq#:1
+		   Flags: Urgent:0  Ack:1  Push:0  Reset:0  Syn:1  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:0 Addr:2.2.2.2  Dest Port:0 Addr:1.1.1.1
+
+    TCP State:SYN_SENT
+
+    TCP->TIM  PRIMITIVE = CLEAR_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:1  Expire_Time:2
+
+    TCP->APP  PRIMITIVE = OPEN_RESPONSE  Local_ID:1
+		   Status:SUCCESS Byte_Count:0
+
+IP<-TCP       PRIMITIVE = IP_SEND  Local_ID:0
+		 Byte_Count:20
+		 Push:0
+		 TCP SEGMENT: SYN + ACK 
+		   Source_Port:33  Dest_Port:46
+		   Send_Seq#:0  Ack_Seq#:1
+		   Flags: Urgent:0  Ack:1  Push:0  Reset:0  Syn:1  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:33 Addr:1.1.1.1  Dest Port:46 Addr:2.2.2.2
+
+IP->TCP       PRIMITIVE = IP_DELIVER  Local_ID:0
+		 Byte_Count:20
+		 Push:0
+		 TCP SEGMENT: ACK
+		   Source_Port:46  Dest_Port:33
+		   Send_Seq#:1  Ack_Seq#:1
+		   Flags: Urgent:0  Ack:1  Push:0  Reset:0  Syn:0  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:0 Addr:2.2.2.2  Dest Port:0 Addr:1.1.1.1
+
+    TCP State:ESTABLISHED
+TCP Input: State Not Supported Yet!!!
+Time = 2
+Time = 3
+Time = 4
+Time = 5
+Time = 6
+Time = 7
+Time = 8
+
+    TCP<-APP  PRIMITIVE = CLOSE  Local_ID:1
+		 Byte_Count:0
+
+    TCP State:ESTABLISHED
+
+    TCP->TIM  PRIMITIVE = SET_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:8  Expire_Time:9
+
+IP<-TCP       PRIMITIVE = IP_SEND  Local_ID:0
+		 Byte_Count:20
+		 Push:1
+		 TCP SEGMENT: FIN
+		   Source_Port:33  Dest_Port:46
+		   Send_Seq#:0  Ack_Seq#:1
+		   Flags: Urgent:0  Ack:0  Push:0  Reset:0  Syn:0  Fin:1
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:33 Addr:1.1.1.1  Dest Port:46 Addr:2.2.2.2
+
+IP->TCP       PRIMITIVE = IP_DELIVER  Local_ID:0
+		 Byte_Count:20
+		 Push:0
+		 TCP SEGMENT: ACK
+		   Source_Port:46  Dest_Port:33
+		   Send_Seq#:1  Ack_Seq#:1
+		   Flags: Urgent:0  Ack:1  Push:0  Reset:0  Syn:0  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:0 Addr:2.2.2.2  Dest Port:0 Addr:1.1.1.1
+
+    TCP State:FIN_WAIT_1
+
+    TCP->TIM  PRIMITIVE = CLEAR_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:8  Expire_Time:9
+Time = 9
+
+IP->TCP       PRIMITIVE = IP_DELIVER  Local_ID:0
+		 Byte_Count:20
+		 Push:1
+		 TCP SEGMENT: FIN
+		   Source_Port:46  Dest_Port:33
+		   Send_Seq#:1  Ack_Seq#:1
+		   Flags: Urgent:0  Ack:0  Push:0  Reset:0  Syn:0  Fin:1
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:0 Addr:2.2.2.2  Dest Port:0 Addr:1.1.1.1
+
+    TCP State:FIN_WAIT_2
+
+    TCP->TIM  PRIMITIVE = SET_RETX_TIMER  Local_ID:1
+		 Byte_Count:0
+		 Set_Time:9  Expire_Time:10
+
+IP<-TCP       PRIMITIVE = IP_SEND  Local_ID:0
+		 Byte_Count:20
+		 Push:0
+		 TCP SEGMENT: ACK
+		   Source_Port:33  Dest_Port:46
+		   Send_Seq#:0  Ack_Seq#:2
+		   Flags: Urgent:0  Ack:1  Push:0  Reset:0  Syn:0  Fin:0
+		   Data_Offset:5  Window:100  Urgent_Ptr:0
+		     APPL DATA: None
+		 Source Port:33 Addr:1.1.1.1  Dest Port:46 Addr:2.2.2.2
+Simulation Done
+Test completed
